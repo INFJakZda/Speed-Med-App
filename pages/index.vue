@@ -1,12 +1,10 @@
 <template>
-  <body class="has-navbar-fixed-top">
+  <div>
     <Nav />
-    <section class="main-content">
-      <div class="container">
-        <p>Hello!</p>
-      </div>
-    </section>
-  </body>
+    <div>
+      <p>aaaaaaaaa</p>
+    </div>
+  </div>
 </template>
 
 <script>

@@ -1,0 +1,28 @@
+{
+  "category": [
+    {
+      "name": "Przeziębienie",
+      "id": 0
+    },
+    {
+      "name": "Odporność",
+      "id": 1
+    },
+    {
+      "name": "Suplementy",
+      "id": 2
+    },
+    {
+      "name": "Witaminy",
+      "id": 3
+    },
+    {
+      "name": "Odchudzanie",
+      "id": 4
+    },
+    {
+      "name": "Dermokosmetyki",
+      "id": 5
+    }
+  ]
+}

@@ -112,6 +112,11 @@ export default {
     return {
       showBurgerMenu: false
     }
+  },
+  methods: {
+    async getCategories() {
+      return null
+    }
   }
 }
 </script>
