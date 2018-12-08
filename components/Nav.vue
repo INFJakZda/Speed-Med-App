@@ -6,12 +6,7 @@
     <div class="navbar-brand">
       <a
         class="navbar-item"
-        href="/">
-        <img
-          src="~/assets/buefy.png"
-          alt="SpeedMed"
-          width="112"
-          height="28">
+        href="/"><h1>SpeedMed</h1>
       </a>
       <div
         :class="{ 'is-active' : showBurgerMenu }"
@@ -30,74 +25,42 @@
       class="navbar-menu">
       <div class="navbar-start">
         <div class="navbar-item has-dropdown is-hoverable">
-          <a
+          <nuxt-link
             class="navbar-link"
-            href="https://bulma.io/documentation/overview/start/">
+            to="/category">
             Kategorie
-          </a>
+          </nuxt-link>
           <div class="navbar-dropdown is-boxed">
-            <a
-              class="navbar-item"
-              href="https://bulma.io/documentation/overview/start/">
-              Overview
-            </a>
-            <a
-              class="navbar-item"
-              href="https://bulma.io/documentation/modifiers/syntax/">
-              Modifiers
-            </a>
-            <a
-              class="navbar-item"
-              href="https://bulma.io/documentation/columns/basics/">
-              Columns
-            </a>
-            <a
-              class="navbar-item"
-              href="https://bulma.io/documentation/layout/container/">
-              Layout
-            </a>
-            <a
-              class="navbar-item"
-              href="https://bulma.io/documentation/form/general/">
-              Form
-            </a>
-            <hr class="navbar-divider">
-            <a
-              class="navbar-item"
-              href="https://bulma.io/documentation/elements/box/">
-              Elements
-            </a>
-            <a
-              class="navbar-item is-active"
-              href="https://bulma.io/documentation/components/breadcrumb/">
-              Components
-            </a>
+            <nuxt-link
+              v-for="category in getCategories"
+              :key="category.id"
+              :to="'/category/' + category.id"
+              class="navbar-item" >{{ category.name }}</nuxt-link>
           </div>
         </div>
       </div>
-
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="field is-grouped">
             <p class="control">
-              <a
+              <nuxt-link
                 class="button"
-                href="https://github.com/jgthms/bulma/releases/download/0.7.2/bulma-0.7.2.zip">
+                to="/location">
                 <span class="icon">
                   <i class="fas fa-download"/>
                 </span>
                 <span>Lokalizacja</span>
-              </a>
+              </nuxt-link>
             </p>
             <p class="control">
-              <a
+              <nuxt-link
                 class="button"
-                href="https://github.com/jgthms/bulma/releases/download/0.7.2/bulma-0.7.2.zip">
+                to="/cart">
                 <span class="icon">
-                  <i class="fas fa-download"/>
+                  <p>i</p>
                 </span>
                 <span>Koszyk</span>
-              </a>
+              </nuxt-link>
             </p>
           </div>
         </div>
@@ -107,15 +70,21 @@
 </template>
 
 <script>
+import { category } from '~/static/category.json'
+
 export default {
   data() {
     return {
+      category,
       showBurgerMenu: false
     }
   },
-  methods: {
-    async getCategories() {
-      return null
+  computed: {
+    getCategories() {
+      return category.map(category => {
+        category.link = '/category/' + category.id
+        return category
+      })
     }
   }
 }

@@ -1,8 +1,10 @@
 <template>
   <div>
     <Nav />
-    <div>
-      <p>aaaaaaaaa</p>
+    <div class="columns">
+      <div class="column">
+        Hello world!
+      </div>
     </div>
   </div>
 </template>
