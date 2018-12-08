@@ -1,11 +1,15 @@
 <template>
   <div>
     <Nav />
+    <Search />
     <Header
       title="Szybki zestaw"
       subtitle="Skorzystaj z naszej zestawów leków!" />
-    <Footer />
-    <Search />
+    <Medicine 
+      v-for="medicine in medicines" 
+      :medicine="medicine" 
+      :key="medicine.id"/>
+    
   </div>
 </template>
 
@@ -13,15 +17,22 @@
 import Nav from '~/components/Nav'
 import Header from '~/components/Header'
 import Search from '~/components/Search'
+import Medicine from '@/components/Medicine'
 
 export default {
   components: {
     Nav,
     Header,
-    Search
+    Search,
+    Medicine
   },
   data() {
     return {}
+  },
+  computed: {
+    medicines() {
+      return this.$store.getters.medicines
+    }
   }
 }
 </script>

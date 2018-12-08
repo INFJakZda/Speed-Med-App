@@ -1,11 +1,9 @@
 <template>
   <div>
-    <div>
-      <Medicine 
-        v-for="medicine in medicines" 
-        :medicine="medicine" 
-        :key="medicine.id"/>
-    </div>
+    <Medicine 
+      v-for="medicine in medicines" 
+      :medicine="medicine" 
+      :key="medicine.id"/>
   </div>
 </template>
 
