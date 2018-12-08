@@ -1,0 +1,24 @@
+{
+  "category": [
+    {
+      "name": "Bóle głowy",
+      "id": "headache"
+    },
+    {
+      "name": "Przeziębienie",
+      "id": "cold"
+    },
+    {
+      "name": "Suplementy",
+      "id": "vitamins"
+    },
+    {
+      "name": "Bóle zatok",
+      "id": "sinuspain"
+    },
+    {
+      "name": "Maści",
+      "id": "ointment"
+    }
+  ]
+}
