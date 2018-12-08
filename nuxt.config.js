@@ -60,6 +60,8 @@ module.exports = {
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+    credentials: false,
+    baseURL: process.env.BASE_URL || 'https://speed-med.firebaseio.com'
   },
 
   /*
