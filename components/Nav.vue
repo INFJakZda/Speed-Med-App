@@ -4,10 +4,12 @@
     role="navigation"
     aria-label="main navigation">
     <div class="navbar-brand">
-      <a
-        class="navbar-item"
-        href="/"><h1>SpeedMed</h1>
-      </a>
+      <span class="navbar-item is-family-code is-size-4">
+        <h3><b-icon icon="prescription-bottle-alt" /> SpeedMed</h3>
+      </span>
+
+
+
       <div
         :class="{ 'is-active' : showBurgerMenu }"
         class="navbar-burger burger"
@@ -47,7 +49,7 @@
                 class="button"
                 to="/location">
                 <span class="icon">
-                  <i class="fas fa-download"/>
+                  <b-icon icon="map-marker-alt"/>
                 </span>
                 <span>Lokalizacja</span>
               </nuxt-link>
@@ -57,7 +59,7 @@
                 class="button"
                 to="/cart">
                 <span class="icon">
-                  <p>i</p>
+                  <b-icon icon="shopping-cart" />
                 </span>
                 <span>Koszyk</span>
               </nuxt-link>

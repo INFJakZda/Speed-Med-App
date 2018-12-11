@@ -4,14 +4,30 @@
       <div class="media">
         <div class="media-left">
           <figure class="image is-64x64">
-            <img 
-              :src="medicine.thumbnail" 
+            <img
+              :src="medicine.thumbnail"
               alt="Placeholder image">
           </figure>
         </div>
         <div class="media-content">
           <p class="title is-4">{{ medicine.name + " zł" }}</p>
           <p class="subtitle is-5">{{ medicine.price + " zł" }}</p>
+          <a
+            v-if="addButton"
+            class="button is-success">
+            <span class="icon is-small">
+              <b-icon icon="plus" />
+            </span>
+            <span>Dodaj</span>
+          </a>
+          <a
+            v-if="removeButton"
+            class="button is-danger is-outlined is-fullwidth">
+            <span class="icon is-small">
+              <b-icon icon="times" />
+            </span>
+            <span>Usuń</span>
+          </a>
         </div>
       </div>
 
@@ -26,6 +42,16 @@ export default {
       type: Object,
       required: false,
       default: null
+    },
+    addButton: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
+    removeButton: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   }
 }
