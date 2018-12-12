@@ -5,7 +5,9 @@
     aria-label="main navigation">
     <div class="navbar-brand">
       <span class="navbar-item is-family-code is-size-4">
-        <h3><b-icon icon="prescription-bottle-alt" /> SpeedMed</h3>
+        <nuxt-link to="/">
+          <h3><b-icon icon="prescription-bottle-alt" /> SpeedMed</h3>
+        </nuxt-link>
       </span>
 
 

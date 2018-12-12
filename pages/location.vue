@@ -9,7 +9,9 @@
           placeholder="Wprowadź adres dostawy"
           @change="v => { form.country.data = v }"/>
       </b-field>
-      <a class="button is-primary is-medium is-fullwidth">Znajdź leki</a>
+      <nuxt-link to="/">
+        <a class="button is-primary is-medium is-fullwidth">Znajdź leki</a>
+      </nuxt-link>
     </section>
   </div>
 </template>
