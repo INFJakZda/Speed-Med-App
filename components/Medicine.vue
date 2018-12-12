@@ -10,8 +10,8 @@
           </figure>
         </div>
         <div class="media-content">
-          <p class="title is-4">{{ medicine.name + " zł" }}</p>
-          <p class="subtitle is-5">
+          <p class="title is-5">{{ medicine.name + " zł" }}</p>
+          <p class="subtitle is-6">
             <font color="green">{{ medicine.price + " zł" }}</font>
             <strike><font color="red">{{ Math.round(parseFloat(medicine.price) + 5) * 100 / 100 + " zł" }}</font></strike>
           </p>

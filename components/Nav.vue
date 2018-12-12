@@ -10,7 +10,17 @@
         </nuxt-link>
       </span>
 
-
+      <p 
+        class="control navbar-item right">
+        <nuxt-link
+          class="button"
+          to="/cart">
+          <span class="icon">
+            <b-icon icon="shopping-cart" />
+          </span>
+          <span>Koszyk {{ itemsInCart }}</span>
+        </nuxt-link>
+      </p>
 
       <div
         :class="{ 'is-active' : showBurgerMenu }"
@@ -60,16 +70,6 @@
                 <span>Lokalizacja</span>
               </nuxt-link>
             </p>
-            <p class="control">
-              <nuxt-link
-                class="button"
-                to="/cart">
-                <span class="icon">
-                  <b-icon icon="shopping-cart" />
-                </span>
-                <span>Koszyk {{ itemsInCart }}</span>
-              </nuxt-link>
-            </p>
           </div>
         </div>
       </div>
@@ -104,3 +104,11 @@ export default {
   }
 }
 </script>
+
+<style>
+.right {
+  position: absolute;
+  right: 52px;
+  padding: 10px;
+}
+</style>
