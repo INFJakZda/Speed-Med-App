@@ -29,7 +29,9 @@ export default {
   },
   computed: {
     medicines() {
-      return this.$store.getters.medicines
+      return this.$store.getters.medicines.filter(obj => {
+        return obj.category == 10
+      })
     }
   }
 }
