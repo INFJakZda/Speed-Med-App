@@ -1,12 +1,10 @@
 <template>
-  <section class="section">
-    <div class="container">
-      <h1 class="title">{{ title }}</h1>
-      <h2 
-        v-if="subtitle.length !== 0" 
-        class="subtitle">{{ subtitle }}</h2>
-    </div>
-  </section>
+  <div class="container">
+    <h1 class="title">{{ title }}</h1>
+    <h2 
+      v-if="subtitle.length !== 0" 
+      class="subtitle">{{ subtitle }}</h2>
+  </div>
 </template>
 
 <script>
@@ -17,3 +15,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.container {
+  margin: 10px;
+}
+</style>

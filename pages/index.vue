@@ -4,7 +4,7 @@
     <Search />
     <Header
       title="Szybki zestaw"
-      subtitle="Skorzystaj z naszej zestawów leków!" />
+      subtitle="Skorzystaj z naszych zestawów leków!" />
     <Medicine
       v-for="medicine in medicines"
       :medicine="medicine"

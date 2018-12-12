@@ -1,10 +1,8 @@
 <template>
   <div>
     <Nav />
-    <Search />
     <Header
-      title="Szybki zestaw"
-      subtitle="Skorzystaj z naszej zestawów leków!" />
+      :title="categoryName.name" />
     <Medicine
       v-for="medicine in medicines"
       :medicine="medicine"
@@ -18,6 +16,7 @@ import Nav from '~/components/Nav'
 import Header from '~/components/Header'
 import Search from '~/components/Search'
 import Medicine from '@/components/Medicine'
+import { category } from '~/static/category.json'
 
 export default {
   components: {
@@ -31,7 +30,12 @@ export default {
   },
   computed: {
     medicines() {
-      return this.$store.getters.medicines
+      return this.$store.getters.medicines.filter(obj => {
+        return obj.category == this.$route.params.id
+      })
+    },
+    categoryName() {
+      return category.filter(cat => cat.id == this.$route.params.id)[0]
     }
   }
 }
