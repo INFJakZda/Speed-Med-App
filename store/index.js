@@ -3,11 +3,22 @@ import Vuex from 'vuex'
 const createStore = () => {
   return new Vuex.Store({
     state: {
-      medicines: []
+      medicines: [],
+      cart: [],
+      cartPrice: 0
     },
     mutations: {
       setMedicines(state, medicines) {
         state.medicines = medicines
+      },
+      addMedicine(state, medicine) {
+        state.cart.push(medicine)
+        state.cartPrice += parseFloat(medicine.price)
+      },
+      removeMedicine(state, medicine) {
+        var index = state.cart.indexOf(medicine)
+        if (index !== -1) state.cart.splice(index, 1)
+        state.cartPrice -= parseFloat(medicine.price)
       }
     },
     actions: {
@@ -25,11 +36,23 @@ const createStore = () => {
       },
       setMedicines(vuexContext, medicines) {
         vuexContext.commit('setMedicines', medicines)
+      },
+      addMedicine(vuexContext, medicine) {
+        vuexContext.commit('addMedicine', medicine)
+      },
+      removeMedicine(vuexContext, medicine) {
+        vuexContext.commit('removeMedicine', medicine)
       }
     },
     getters: {
       medicines(state) {
         return state.medicines
+      },
+      cart(state) {
+        return state.cart
+      },
+      cartPrice(state) {
+        return state.cartPrice
       }
     }
   })

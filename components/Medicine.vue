@@ -14,7 +14,8 @@
           <p class="subtitle is-5">{{ medicine.price + " zł" }}</p>
           <a
             v-if="addButton"
-            class="button is-success">
+            class="button is-success"
+            @click="addToCart">
             <span class="icon is-small">
               <b-icon icon="plus" />
             </span>
@@ -22,7 +23,8 @@
           </a>
           <a
             v-if="removeButton"
-            class="button is-danger is-outlined is-fullwidth">
+            class="button is-danger is-outlined is-fullwidth"
+            @click="removeCart">
             <span class="icon is-small">
               <b-icon icon="times" />
             </span>
@@ -52,6 +54,14 @@ export default {
       type: Boolean,
       required: false,
       default: false
+    }
+  },
+  methods: {
+    addToCart() {
+      this.$store.dispatch('addMedicine', this.medicine)
+    },
+    removeCart() {
+      this.$store.dispatch('removeMedicine', this.medicine)
     }
   }
 }
