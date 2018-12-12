@@ -4,7 +4,9 @@ const createStore = () => {
   return new Vuex.Store({
     state: {
       medicines: [],
-      location: null
+      location: null,
+      cart: [],
+      cartPrice: 0
     },
     mutations: {
       setMedicines(state, medicines) {
@@ -12,6 +14,15 @@ const createStore = () => {
       },
       location(state, location) {
         state.location = location
+      },
+      addMedicine(state, medicine) {
+        state.cart.push(medicine)
+        state.cartPrice += parseFloat(medicine.price)
+      },
+      removeMedicine(state, medicine) {
+        var index = state.cart.indexOf(medicine)
+        if (index !== -1) state.cart.splice(index, 1)
+        state.cartPrice -= parseFloat(medicine.price)
       }
     },
     actions: {
@@ -29,6 +40,12 @@ const createStore = () => {
       },
       setMedicines(vuexContext, medicines) {
         vuexContext.commit('setMedicines', medicines)
+      },
+      addMedicine(vuexContext, medicine) {
+        vuexContext.commit('addMedicine', medicine)
+      },
+      removeMedicine(vuexContext, medicine) {
+        vuexContext.commit('removeMedicine', medicine)
       }
     },
     getters: {
@@ -40,6 +57,12 @@ const createStore = () => {
       },
       isLocationSet(state) {
         return state.location !== null
+      },
+      cart(state) {
+        return state.cart
+      },
+      cartPrice(state) {
+        return state.cartPrice
       }
     }
   })

@@ -7,7 +7,7 @@
         :medicine="medicine"
         :key="medicine.id"
         :remove-button="true" />
-      <a class="button is-primary is-medium is-fullwidth">Złóż zamówienie</a>
+      <a class="button is-primary is-medium is-fullwidth">Złóż zamówienie {{ price + "zł" }}</a>
     </section>
   </div>
 </template>
@@ -26,7 +26,10 @@ export default {
   },
   computed: {
     medicines() {
-      return this.$store.getters.medicines
+      return this.$store.getters.cart
+    },
+    price() {
+      return Math.round(this.$store.getters.cartPrice * 100) / 100
     }
   }
 }
