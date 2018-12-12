@@ -3,7 +3,7 @@
     <div class="card-content">
       <div class="media">
         <div class="media-left">
-          <figure class="image is-64x64">
+          <figure class="image is-128x128">
             <img
               :src="medicine.thumbnail"
               alt="Placeholder image">
@@ -11,7 +11,10 @@
         </div>
         <div class="media-content">
           <p class="title is-4">{{ medicine.name + " zł" }}</p>
-          <p class="subtitle is-5">{{ medicine.price + " zł" }}</p>
+          <p class="subtitle is-5">
+            <font color="green">{{ medicine.price + " zł" }}</font>
+            <strike><font color="red">{{ Math.round(parseFloat(medicine.price) + 5) * 100 / 100 + " zł" }}</font></strike>
+          </p>
           <a
             v-if="addButton"
             class="button is-success"
@@ -59,9 +62,17 @@ export default {
   methods: {
     addToCart() {
       this.$store.dispatch('addMedicine', this.medicine)
+      this.$toast.open({
+        message: 'Dodano do koszyka: ' + this.medicine.name.split(' ')[0],
+        type: 'is-success'
+      })
     },
     removeCart() {
       this.$store.dispatch('removeMedicine', this.medicine)
+      this.$toast.open({
+        message: 'Usunięto z koszyka: ' + this.medicine.name.split(' ')[0],
+        type: 'is-danger'
+      })
     }
   }
 }
