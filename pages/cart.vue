@@ -23,11 +23,13 @@
         :medicine="medicine"
         :key="medicine.id"
         :remove-button="true" />
-      <section>
-        <p>Razem: <strong>{{ price }} zł</strong></p>
-        <p>Na adres: <strong>{{ location }}</strong></p>
+      <section class="section">
+        <h2 class="subtitle">Razem: <strong>{{ price }} zł</strong></h2>
+        <h2 class="subtitle">Na adres: <strong>{{ location }}</strong></h2>
       </section>
-      <a class="button is-primary is-medium is-fullwidth">Złóż zamówienie</a>
+      <nuxt-link
+        class="button is-primary is-medium is-fullwidth"
+        to="/processing">Zamawiam</nuxt-link>
     </section>
   </div>
 </template>

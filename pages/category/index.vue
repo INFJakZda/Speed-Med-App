@@ -5,10 +5,8 @@
     <Header
       title="Szybki zestaw"
       subtitle="Skorzystaj z naszych zestawów leków!" />
-    <Medicine
-      v-for="medicine in medicines"
-      :medicine="medicine"
-      :key="medicine.id"
+    <MedicineList
+      :item-list="medicines"
       :add-button="true" />
   </div>
 </template>
@@ -17,14 +15,14 @@
 import Nav from '~/components/Nav'
 import Header from '~/components/Header'
 import Search from '~/components/Search'
-import Medicine from '@/components/Medicine'
+import MedicineList from '@/components/MedicineList'
 
 export default {
   components: {
     Nav,
     Header,
     Search,
-    Medicine
+    MedicineList
   },
   data() {
     return {}

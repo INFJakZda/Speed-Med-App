@@ -27,6 +27,10 @@ const createStore = () => {
         var index = state.cart.indexOf(medicine)
         if (index !== -1) state.cart.splice(index, 1)
         state.cartPrice -= parseFloat(medicine.price)
+      },
+      clearCart(state) {
+        state.cart = []
+        state.cartPrice = 0
       }
     },
     actions: {
