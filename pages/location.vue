@@ -7,9 +7,11 @@
           v-model="form.country.label"
           :options="{ countries: ['PL'] }"
           placeholder="Wprowadź adres dostawy"
-          @change="v => { form.country.data = v }"/>
+          @change="v => { form.country.data = v }" />
       </b-field>
-      <a class="button is-primary is-medium is-fullwidth">Znajdź leki</a>
+      <a
+        class="button is-primary is-medium is-fullwidth"
+        @click.prevent="setLocation()">Znajdź leki</a>
     </section>
   </div>
 </template>
@@ -34,6 +36,12 @@ export default {
           data: {}
         }
       }
+    }
+  },
+  methods: {
+    setLocation() {
+      this.$store.commit('location', this.form.country.label)
+      this.$router.push('/')
     }
   }
 }

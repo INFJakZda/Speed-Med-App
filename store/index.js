@@ -3,11 +3,15 @@ import Vuex from 'vuex'
 const createStore = () => {
   return new Vuex.Store({
     state: {
-      medicines: []
+      medicines: [],
+      location: null
     },
     mutations: {
       setMedicines(state, medicines) {
         state.medicines = medicines
+      },
+      location(state, location) {
+        state.location = location
       }
     },
     actions: {
@@ -30,6 +34,12 @@ const createStore = () => {
     getters: {
       medicines(state) {
         return state.medicines
+      },
+      location(state) {
+        return state.location
+      },
+      isLocationSet(state) {
+        return state.location !== null
       }
     }
   })

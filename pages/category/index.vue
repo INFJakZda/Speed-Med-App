@@ -6,7 +6,7 @@
         v-for="medicine in medicines"
         :medicine="medicine"
         :key="medicine.id"
-        :remove-button="true" />
+        :add-button="true" />
       <a class="button is-primary is-medium is-fullwidth">Złóż zamówienie</a>
     </section>
   </div>
