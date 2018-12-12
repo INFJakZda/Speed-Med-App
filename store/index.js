@@ -5,6 +5,7 @@ const createStore = () => {
     state: {
       medicines: [],
       location: null,
+      locationData: {},
       cart: [],
       cartPrice: 0
     },
@@ -14,6 +15,9 @@ const createStore = () => {
       },
       location(state, location) {
         state.location = location
+      },
+      locationData(state, locationData) {
+        state.locationData = locationData
       },
       addMedicine(state, medicine) {
         state.cart.push(medicine)
@@ -54,6 +58,9 @@ const createStore = () => {
       },
       location(state) {
         return state.location
+      },
+      locationData(state) {
+        return state.locationData
       },
       isLocationSet(state) {
         return state.location !== null

@@ -38,9 +38,14 @@ export default {
       }
     }
   },
+  created() {
+    this.form.country.label = this.$store.getters.location
+    this.form.country.data = this.$store.getters.locationData
+  },
   methods: {
     setLocation() {
       this.$store.commit('location', this.form.country.label)
+      this.$store.commit('locationData', this.form.country.data)
       this.$router.push('/')
     }
   }

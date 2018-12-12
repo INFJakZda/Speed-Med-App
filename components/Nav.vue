@@ -48,7 +48,11 @@
           <div class="field is-grouped">
             <p class="control">
               <nuxt-link
-                class="button"
+                :class="{
+                  'button': true,
+                  'is-success': isLocationSet,
+                  'is-warning': !isLocationSet
+                }"
                 to="/location">
                 <span class="icon">
                   <b-icon icon="map-marker-alt"/>
@@ -63,7 +67,7 @@
                 <span class="icon">
                   <b-icon icon="shopping-cart" />
                 </span>
-                <span>Koszyk</span>
+                <span>Koszyk {{ itemsInCart }}</span>
               </nuxt-link>
             </p>
           </div>
@@ -89,6 +93,13 @@ export default {
         category.link = '/category/' + category.id
         return category
       })
+    },
+    isLocationSet() {
+      return this.$store.getters.isLocationSet
+    },
+    itemsInCart() {
+      let items = this.$store.getters.cart.length
+      return items > 0 ? ' (' + items + ') ' : ''
     }
   }
 }
